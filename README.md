@@ -11,7 +11,7 @@ source /path/to/autosrc.zsh
 
 Then, create a file called `.autosrc` in the directory/directories you want to use autosrc. Specify `autosrc_enter()` and `autosrc_exit()` functions to be called on enter and exit events.
 
-Here is an example with Python venv:
+Here is an example `.autosrc` file for Python venv:
 ```shell
 # Called when you first enter the directory (or its children)
 autosrc_enter() {
