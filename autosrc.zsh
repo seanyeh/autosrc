@@ -32,7 +32,7 @@ autosrc_call(){
     # Clear temp functions/variables
     autosrc_clear
 
-    local cur_dir=$(pwd)
+    local cur_dir="$(pwd)"
     source "$autosrc_file"
 
 
@@ -46,7 +46,7 @@ autosrc_call(){
 }
 
 autosrc_run() {
-    local cur_pwd=$(pwd)
+    local cur_pwd="$(pwd)"
 
     # If same dir, exit
     if [ "$OLDPWD" = "$cur_pwd" ]; then
@@ -76,4 +76,4 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd autosrc_run
 
 # Call on startup as well
-autosrc_find $(pwd) && autosrc_call "$autosrc_file" "enter"
+autosrc_find "$(pwd)" && autosrc_call "$autosrc_file" "enter"
