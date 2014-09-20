@@ -1,5 +1,7 @@
 AUTOSRC=".autosrc"
 
+AUTOSRC_IGNORE=0
+
 autosrc_clear(){
     unset -f "autosrc_enter" 2>/dev/null
     unset -f "autosrc_exit" 2>/dev/null
@@ -37,15 +39,22 @@ autosrc_call(){
 
 
     if autosrc_is_func "$autosrc_func"; then
+        AUTOSRC_IGNORE=1
         cd $(dirname "$autosrc_file")
 
         $autosrc_func
 
         cd "$cur_dir"
+
+        AUTOSRC_IGNORE=0
     fi
 }
 
 autosrc_run() {
+    if [ "$AUTOSRC_IGNORE" -eq 1 ]; then
+        return
+    fi
+
     local cur_pwd="$(pwd)"
 
     # If same dir, exit
