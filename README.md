@@ -1,13 +1,24 @@
 # autosrc
-Script for zsh to automatically run commands based on which directory you are in. An example of this being useful is managing multiple Python virtual environments.
+Script for zsh/bash to automatically run commands based on which directory you are in. An example of this being useful is managing multiple Python virtual environments.
 
 
-### Usage
+### Installation
 
+#### zsh
 Add to your `~/.zshrc`:
 ```
 source /path/to/autosrc.zsh
 ```
+
+#### bash
+Add to your `~/.bashrc`:
+```
+source /path/to/autosrc.bash
+```
+(This is not as well tested since I don't use bash often. Please let me know if
+you find a bug.)
+
+### Usage
 
 Then, create a file called `.autosrc` in the directory/directories you want to use autosrc. Specify `autosrc_enter()` and `autosrc_exit()` functions to be called on enter and exit events.
 
